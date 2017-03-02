@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"webpack",
+    "dev":"webpack-dev-server  --port 3000 --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangminghuan/my-react-webpack.git"
+  },
+  "author": "wangminghuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangminghuan/my-react-webpack/issues"
+  },
+  "homepage": "https://github.com/wangminghuan/my-react-webpack#readme"
+}
