@@ -26,7 +26,6 @@ var MyComponent=React.createClass({
      <div>
       <button onClick={this.handleClick}>点击+1</button>
       <p>按钮被点击了{this.state.clickCount}次</p>
-      <h1>我是测试文件222</h1>
      </div>
     )
   }

@@ -55,15 +55,15 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler);
 
 app.use(devMiddleware);
 app.use(hotMiddleware);
-app.use(express.static(path.join(__dirname, 'app')));
+app.use(express.static(path.join(__dirname, 'src/static')));
 // 路由
-app.set('views','./app/');
 app.get('/', function(req, res) {
-    res.send('地址栏输入 localhost:3000/ + 你的页面文件夹名称 访问对应页面哦');
+    res.sendFile( __dirname + "/" + "index.html" );
 });
-/*app.get('/index.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "index.html" );
-});*/
+app.get('/view/:viewname?', function (req, res) {
+    var viewname = req.params.viewname ? req.params.viewname + '.html' : 'index.html';
+   res.sendFile( __dirname + "/view/" + viewname );
+});
 
 /*app.get('/:viewname?', function(req, res, next) {
 	console.log(req.params);
