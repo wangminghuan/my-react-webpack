@@ -1,6 +1,5 @@
 var webpack=require('webpack');
 var path=require("path");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 //postcss-loader中autoprefixer插件
 var autoprefixer = require('autoprefixer');
