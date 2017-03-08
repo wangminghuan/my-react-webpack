@@ -55,7 +55,8 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler);
 
 app.use(devMiddleware);
 app.use(hotMiddleware);
-app.use(express.static(path.join(__dirname, 'src/static')));
+//设置静态文件资源目录
+app.use(express.static(path.join(__dirname, 'src')));
 // 路由
 app.get('/', function(req, res) {
     res.sendFile( __dirname + "/" + "index.html" );
