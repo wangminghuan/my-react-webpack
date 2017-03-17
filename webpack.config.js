@@ -1,24 +1,42 @@
 var webpack=require('webpack');
-var path=require("path");
+var __PATH=require('./path.config.js');
 //var glob = require('glob');
 //node的glob模块允许你使用*等符号，来写一个glob规则，像在shell里一样，获取匹配对应规则的文件。
 
-//定义了一些文件夹的路径
-var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, 'src');
-var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 var config = process.env.NODE_ENV === 'production' ? require('./webpack.prod.config.js') : require('./webpack.dev.config.js');
 
-config.entry=[ //利用中间件实现热更新，reload=true配置如果热更新失败，强制刷新页面
-     'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr&reload=true',
-	 APP_PATH+"/index.js"
-	];
-
+config.module={
+	loaders:[
+       	{
+	         test: /\.css$/,
+	         include: __PATH.APP,
+	         exclude: /node_modules/,
+	         loader: "style-loader!css-loader!postcss-loader"
+       	},
+    	{
+	        test: /\.(png|jpg)$/,
+	        include: __PATH.APP,
+	        exclude: /node_modules/,
+	        loader: 'url-loader'/*?limit=40000*/
+  		},
+  		{
+		 	 test: /\.js[x]?$/,
+		 	 include: __PATH.APP,
+	         exclude: /node_modules/,
+	         loader: 'react-hot-loader!babel-loader' 
+    	}
+	]
+};
 config.output={
-		path: BUILD_PATH,
-	    publicPath: '/',
-	    filename: 'bundle.js'
+		path: __PATH.BUILD,
+	    publicPath: __PATH.PUBLIC,
+	    filename: __PATH.OUTPUT_NAME
 	};
-
+config.resolve = {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      //    "react":path.resolve(__dirname, 'client/lib/react.min.js'),
+    }
+  };
 module.exports=config;
