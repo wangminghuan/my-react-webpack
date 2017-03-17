@@ -14,7 +14,7 @@ config.module={
 	 	{
 		 	 test: /\.js[x]?$/,
 	         exclude: /node_modules/,
-	         loader: 'react-hot-loader!babel-loader' 
+	         loader: 'react-hot-loader!babel-loader'
     	},
     	{
 	        test: /\.(png|jpg)$/,
@@ -26,11 +26,11 @@ config.module={
 
 config.plugins=[
     //自动打开浏览器
-    new OpenBrowserPlugin({
-    		url: 'http://localhost:3000'
-		}),
+  //  new OpenBrowserPlugin({
+  //  		url: 'http://localhost:3000'
+		//}),
     new webpack.NoEmitOnErrorsPlugin(), //允许错误不打断程序
-    new webpack.HotModuleReplacementPlugin(),　　//webpack热替换插件  
+    new webpack.HotModuleReplacementPlugin(),　　//webpack热替换插件
     new webpack.NamedModulesPlugin(),// prints more readable module names in the browser console on HMR updates
 ]
 
