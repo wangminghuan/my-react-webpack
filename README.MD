@@ -60,7 +60,7 @@
 │      
 │
 ├── server                     # 模拟后端接口数据（待补充）
-│      ├──          
+│      ├         
 │      └──  test.json
 │                                  
 │
@@ -80,8 +80,10 @@
 
 1. `webpack-dev-server`经测试只能实现自动刷新，对css文件可以实现热更新，但js文件是全刷新。对于`webpack-dev-middleware + webpack-hot-middleware + express`同样也是如此。
 2. 其实`webpack-dev-server`就是官方通过封装 `webpack-dev-middleware + webpack-hot-middleware + express` 实现的，通过直接调用中间件，可以实现更多的个性化定制。
-3. 关于HMR(hot module replacement), 其实是需要loader支持的，css-loader支持热更新，而普通的js loader是不支持的，如：babel-loader, 但是react-hot-loader是支持热更新的。这就是为什么react可以实现热更新，普通开发实现不了的原因。浏览器报错信息也可以看到：模块已经更新，但是模块处理器不知道如何更新
-2017-06-03 补充 ：
+3. 关于HMR(hot module replacement), 其实是需要loader支持的，css-loader支持热更新，而普通的js loader是不支持的，如：babel-loader, 但是react-hot-loader是支持热更新的。这就是为什么react可以实现热更新，普通开发实现不了的原因。浏览器报错信息也可以看到：模块已经更新，但是模块处理器不知道如何更新。  
+
+2017-06-03 补充 ：  
+
 1. 支持sass, 开启dev下的sourceMap
 2. 修改start指令为：cross-env NODE_ENV=dev node server.js,解决atom下的terminal运行时环境变量总是prod的bug
 3. 添加PubSub，用户简单情况下组件间的通信
