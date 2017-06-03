@@ -4,11 +4,12 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var __PATH=require('./path.config.js');
 var config={};
-
+//开启sourceMap,方便调试
+config.devtool = '#cheap-module-source-map';
 config.entry=[ //利用中间件实现热更新，reload=true配置如果热更新失败，强制刷新页面
      'webpack-hot-middleware/client?',/*path=http://localhost:3000/__webpack_hmr&reload=true*/
-	  __PATH.ENTRY
-	];
+    __PATH.ENTRY
+  ];
 
 config.plugins=[
     new webpack.HotModuleReplacementPlugin(),　　//webpack热替换插件  

@@ -1,0 +1,31 @@
+@import "../../common/scss/pxToRem.scss";
+.edit{
+ display: flex;
+ flex-direction:column;
+ padding: 0 15px;
+ margin-top: 40px;
+ color:#000;
+ font-size: 14px;
+  span{
+  	display:inline-block;
+  	background-image:url('../../common/img/edit.png');
+  	background-repeat:no-repeat;
+  	background-size: 20px auto;
+  	padding-left: 25px;
+  	height:20px;
+  	margin-bottom: 10px;
+  }
+  textarea{
+  	margin-bottom: 10px;
+  	resize:none;
+  	height: 50px;
+  }
+  input{
+  	width:pxToRem(150px);
+  	height: 40px;
+  	border-radius: 2px;
+  	background-color: #ff552e;
+  	margin: 0 auto;
+  	color: #fff;
+  }
+}

@@ -4,7 +4,9 @@ var __PATH=require('./path.config.js');
 //node的glob模块允许你使用*等符号，来写一个glob规则，像在shell里一样，获取匹配对应规则的文件。
 
 
-var config = process.env.NODE_ENV === 'production' ? require('./webpack.prod.config.js') : require('./webpack.dev.config.js');
+var config = process.env.NODE_ENV === 'prod' ? require('./webpack.prod.config.js') : require('./webpack.dev.config.js');
+
+console.log('NODE_ENV is '+process.env.NODE_ENV);
 
 config.module={
 	loaders:[
@@ -13,6 +15,12 @@ config.module={
 	         include: __PATH.APP,
 	         exclude: /node_modules/,
 	         loader: "style-loader!css-loader!postcss-loader"
+       	},
+       	{
+	         test: /\.scss$/,
+	         include: __PATH.APP,
+	         exclude: /node_modules/,
+	         loader: "style-loader!css-loader!postcss-loader!sass-loader"
        	},
     	{
 	        test: /\.(png|jpg)$/,
