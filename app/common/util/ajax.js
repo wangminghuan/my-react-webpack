@@ -6,11 +6,11 @@ export default function ajax(opts) {
         async: true,
         cache: true,
         contentType: 'application/x-www-form-urlencoded',
-        sucess: function() {},
+        success: function() {},
         error: function() {}
     };
     for (var key in opts) {
-        defaults[key] = opts[key]
+        defaults[key] = opts[key
     }
 
     //处理用户输入的data数据
@@ -50,7 +50,7 @@ export default function ajax(opts) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                defaults.sucess(xhr.responseText)
+                defaults.success(xhr.responseText)
             } else {
                 defaults.error(xhr.status)
             }

@@ -13,7 +13,9 @@ class App extends Component{
   render() {
     return (
       <div className="wrap">
-        <ComponentEdit />
+        <ComponentEdit
+        // title={'我是app传入数据'}
+        />
         <ComponentTips />
       </div>
     )

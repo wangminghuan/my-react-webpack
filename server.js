@@ -30,6 +30,10 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.get('/', function(req, res) {
     res.sendFile( __dirname + "/" + "index.html" );
 });
+//设置favicon
+app.get('/favicon.ico', function(req, res) {
+    res.sendFile( __dirname + "/favicon.ico");
+});
 //其他模板文件会直接进去根目录下的view/去查找
 app.get('/:viewname?', function (req, res) {
     var viewname = req.params.viewname ? req.params.viewname + '.html' : 'index.html';
