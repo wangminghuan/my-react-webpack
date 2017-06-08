@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import pubSub from "PubSub";
-import ComponentTips from '../components/Tips.jsx';
-import ComponentEdit from '../components/Edit.jsx';
+import ComponentTips from '../components/Tips';
+import ComponentEdit from '../components/Edit';
 import initReactFastclick from 'react-fastclick';
 initReactFastclick();
-class App extends Component{
+export default class extends Component{
   constructor(props){
   	super(props);
     //建立一个全局变量，用于订阅发布通道
@@ -20,5 +20,4 @@ class App extends Component{
       </div>
     )
   }
-};
-export default App
+}

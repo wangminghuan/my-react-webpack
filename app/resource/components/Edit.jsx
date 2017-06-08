@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import './Edit.scss';
 
-class ComponentEdit extends Component{
+export default class extends Component{
  static defaultProps={
   title:"请提交数据以供测试"
  }
@@ -14,9 +14,8 @@ class ComponentEdit extends Component{
  // 开发环境使用，线上环境不建议带入
  constructor(props){
         super(props);
-        this.handleClick=this.handleClick.bind(this);
     }
-  handleClick(){
+  handleClick= ()=>{
   	alert("提交成功！")
   }
   render() {
@@ -34,4 +33,3 @@ class ComponentEdit extends Component{
 // ComponentEdit.defaultProps={
 //   title:"请提交数据以供测试"
 // }
-export default ComponentEdit
